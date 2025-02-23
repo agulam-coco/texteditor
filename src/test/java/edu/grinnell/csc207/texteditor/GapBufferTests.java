@@ -7,8 +7,11 @@ import net.jqwik.api.*;
 import net.jqwik.api.constraints.*;
 
 public class GapBufferTests {
-    /** TODO: fill me in with unit and property tests! */
-      @Test
+
+    /**
+     * TODO: fill me in with unit and property tests!
+     */
+    @Test
     public void emptyBufferTests() {
 
         GapBuffer temp = new GapBuffer();
@@ -36,8 +39,14 @@ public class GapBufferTests {
         temp.insert('l');
         temp.insert('l');
         temp.insert('o');
+        temp.insert(' ');
+        temp.insert('w');
+        temp.insert('o');
+        temp.insert('r');
+        temp.insert('l');
+        temp.insert('d');
 
-        assertEquals("hello", temp.toString(), "Insertion failed");
+        assertEquals("hello world", temp.toString(), "Insertion failed");
     }
 
     @Test
@@ -98,7 +107,8 @@ public class GapBufferTests {
         assertEquals(10, temp.getCursorPosition(), "Get Cursor Failed");
 
     }
-@Test
+
+    @Test
     public void moveLeftTest() {
         GapBuffer temp = new GapBuffer();
         temp.insert('h');

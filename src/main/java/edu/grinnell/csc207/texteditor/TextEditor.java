@@ -15,6 +15,20 @@ public class TextEditor {
             System.exit(1);
         }
 
+        GapBuffer temp = new GapBuffer();
+        temp.insert('h');
+        temp.insert('e');
+        temp.insert('l');
+        temp.insert('l');
+        temp.insert('o');
+        temp.insert(' ');
+        temp.insert('w');
+        temp.insert('o');
+        temp.insert('r');
+        temp.insert('l');
+        temp.insert('d');
+        System.out.println(temp.toString());
+        
         // TODO: fill me in with a text editor TUI!
         String path = args[0];
         System.out.format("Loading %s...\n", path);

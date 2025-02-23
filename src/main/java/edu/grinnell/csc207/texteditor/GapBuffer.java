@@ -28,11 +28,19 @@ public class GapBuffer {
 
         int numberAfterGap = buffer.length - afterCursorIndex;
 
+        int newAfterCursorIndex = newArray.length - numberAfterGap;
+
         //copy portion after gap 
-        System.arraycopy(buffer, afterCursorIndex, newArray, newArray.length - numberAfterGap, numberAfterGap);
+        if (numberAfterGap > 0) {
+            System.arraycopy(buffer, afterCursorIndex, newArray, newAfterCursorIndex - 1, numberAfterGap);
+        }
 
         //assign new array
         buffer = newArray;
+
+        //move after cursor to new 
+        afterCursorIndex = newAfterCursorIndex;
+        
     }
 
     public void insert(char ch) {
@@ -86,7 +94,7 @@ public class GapBuffer {
 
     public int getSize() {
         //buffer length - length of gap +1 <-- for shift by index
-        return (buffer.length - (afterCursorIndex - gapStartingIndex)+1);
+        return (buffer.length - (afterCursorIndex - gapStartingIndex) + 1);
     }
 
     public char getChar(int i) {
@@ -112,11 +120,13 @@ public class GapBuffer {
             firstHalf = String.valueOf(Arrays.copyOfRange(buffer, 0, gapStartingIndex));
         }
 
-        if (gapStartingIndex == buffer.length) {
+        if (afterCursorIndex == buffer.length) {
             secondHalf = "";
         } else {
             secondHalf = String.valueOf(Arrays.copyOfRange(buffer, afterCursorIndex, buffer.length));
         }
+        System.out.println(afterCursorIndex);
+        System.out.println(buffer.length);
 
         return firstHalf + secondHalf;
     }
