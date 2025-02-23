@@ -1,38 +1,105 @@
 package edu.grinnell.csc207.texteditor;
 
+import java.util.Arrays;
+
 /**
  * A gap buffer-based implementation of a text buffer.
  */
 public class GapBuffer {
+
+    final int INITIAL_BUFFER_SIZE = 20;
+    char[] buffer = new char[INITIAL_BUFFER_SIZE];
+
+    private int gapStartingIndex;
+    private int afterCursorIndex;
+
+    public GapBuffer() {
+        gapStartingIndex = 0;
+        afterCursorIndex = buffer.length;
+    }
+
     public void insert(char ch) {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+
+        buffer[gapStartingIndex] = ch;
+        gapStartingIndex++;
+
+        if (gapStartingIndex == afterCursorIndex) {
+            //expand
+        }
+        //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     public void delete() {
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        //decerement gap starting index unless it is at the start of array
+        if (gapStartingIndex != 0) {
+            gapStartingIndex--;
+        }
+        //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     public int getCursorPosition() {
-        throw new UnsupportedOperationException("Unimplemented method 'getCursorPosition'");
+        return gapStartingIndex;
     }
 
     public void moveLeft() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
+        //if gapStaringIndex > 0
+        //move gap starting index back one.
+        //move after cursor index back one 
+        //take whatever is at gapStartingIndex position and move it to afterCursor position
+
+        if (gapStartingIndex > 0) {
+            gapStartingIndex--;
+            afterCursorIndex--;
+            buffer[afterCursorIndex] = buffer[gapStartingIndex];
+        }
     }
 
     public void moveRight() {
-        throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
+        //if aftercursor < buffer length
+        //copy value in after cursor to gapStartingBuffer.
+        //increment gapStartingIndex
+        //increment afterCursorIndex
+        if (afterCursorIndex < buffer.length) {
+            buffer[gapStartingIndex] = buffer[afterCursorIndex];
+            gapStartingIndex++;
+            afterCursorIndex++;
+        }
     }
 
     public int getSize() {
-        throw new UnsupportedOperationException("Unimplemented method 'getSize'");
+        //buffer length - length of gap +1 <-- for shift by index
+        return (buffer.length - (afterCursorIndex - gapStartingIndex) + 1);
     }
 
     public char getChar(int i) {
-        throw new UnsupportedOperationException("Unimplemented method 'getChar'");
+        //in the part after gap
+        if (i >= gapStartingIndex) {
+            return buffer[afterCursorIndex + (i - gapStartingIndex)];
+        } //in the part before gap
+        else {
+            return buffer[i];
+        }
+        //throw new UnsupportedOperationException("Unimplemented method 'getChar'");
     }
 
+    //credit: https://stackoverflow.com/a/4822280
     public String toString() {
-        throw new UnsupportedOperationException("Unimplemented method 'toString'");
+        //add first part before gap to part after gap
+        String firstHalf;
+        String secondHalf;
+
+        if (gapStartingIndex == 0) {
+            firstHalf = "";
+        } else {
+            firstHalf = new String(Arrays.copyOfRange(buffer, 0, gapStartingIndex));
+        }
+
+        if (gapStartingIndex == buffer.length) {
+            secondHalf = "";
+        } else {
+            secondHalf = new String(Arrays.copyOfRange(buffer, afterCursorIndex, buffer.length));
+        }
+
+        return firstHalf + secondHalf;
     }
 }
