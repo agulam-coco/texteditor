@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class GapBuffer {
 
-    final int INITIAL_BUFFER_SIZE = 20;
+    final int INITIAL_BUFFER_SIZE = 7;
     char[] buffer = new char[INITIAL_BUFFER_SIZE];
 
     private int gapStartingIndex;
@@ -17,23 +17,22 @@ public class GapBuffer {
         gapStartingIndex = 0;
         afterCursorIndex = buffer.length;
     }
-    
-    
-    private void expand(){
-        
+
+    private void expand() {
+
         //new array of double size 
         char[] newArray = new char[buffer.length * 2];
-        
+
         //copy portion before gap
-        System.arraycopy( buffer, 0, newArray, 0, gapStartingIndex );
-        
+        System.arraycopy(buffer, 0, newArray, 0, gapStartingIndex);
+
         int numberAfterGap = buffer.length - afterCursorIndex;
-        
+
         //copy portion after gap 
-        System.arraycopy( buffer, afterCursorIndex, newArray, newArray.length-numberAfterGap, numberAfterGap);
-        
+        System.arraycopy(buffer, afterCursorIndex, newArray, newArray.length - numberAfterGap, numberAfterGap);
+
         //assign new array
-        buffer = newArray;   
+        buffer = newArray;
     }
 
     public void insert(char ch) {
@@ -43,12 +42,13 @@ public class GapBuffer {
 
         if (gapStartingIndex == afterCursorIndex) {
             //expand
+            expand();
         }
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     public void delete() {
-        //decerement gap starting index unless it is at the start of array
+        //decrement gap starting index unless it is at the start of array
         if (gapStartingIndex != 0) {
             gapStartingIndex--;
         }
@@ -56,7 +56,7 @@ public class GapBuffer {
     }
 
     public int getCursorPosition() {
-        return gapStartingIndex;
+        return gapStartingIndex - 1;
     }
 
     public void moveLeft() {
@@ -86,7 +86,7 @@ public class GapBuffer {
 
     public int getSize() {
         //buffer length - length of gap +1 <-- for shift by index
-        return (buffer.length - (afterCursorIndex - gapStartingIndex) + 1);
+        return (buffer.length - (afterCursorIndex - gapStartingIndex)+1);
     }
 
     public char getChar(int i) {
@@ -109,13 +109,13 @@ public class GapBuffer {
         if (gapStartingIndex == 0) {
             firstHalf = "";
         } else {
-            firstHalf = new String(Arrays.copyOfRange(buffer, 0, gapStartingIndex));
+            firstHalf = String.valueOf(Arrays.copyOfRange(buffer, 0, gapStartingIndex));
         }
 
         if (gapStartingIndex == buffer.length) {
             secondHalf = "";
         } else {
-            secondHalf = new String(Arrays.copyOfRange(buffer, afterCursorIndex, buffer.length));
+            secondHalf = String.valueOf(Arrays.copyOfRange(buffer, afterCursorIndex, buffer.length));
         }
 
         return firstHalf + secondHalf;
