@@ -15,7 +15,7 @@ public class GapBufferTests {
     public void emptyBufferTests() {
 
         GapBuffer temp = new GapBuffer();
-        assertEquals(0, temp.getSize(), "Size is not 0");
+        assertEquals(0, temp.getSize(), "Size is not 0 yo");
 
         //delete test empty
         temp.delete();
@@ -75,18 +75,24 @@ public class GapBufferTests {
     @Test
     public void deleteTestEdge() {
         GapBuffer temp = new GapBuffer();
-        temp.insert('h');
+       temp.insert('h');
         temp.insert('e');
         temp.insert('l');
         temp.insert('l');
         temp.insert('o');
+        temp.insert(' ');
+        temp.insert('w');
+        temp.insert('o');
+        temp.insert('r');
+        temp.insert('l');
+        temp.insert('d');
 
         //delete 4 characters
         for (int i = 0; i < 8; i++) {
             temp.delete();
         }
 
-        assertEquals(0, temp.getCursorPosition(), "Delete edge case failed");
+        assertEquals(3, temp.getCursorPosition(), "Delete edge case failed");
     }
 
     @Test
@@ -104,7 +110,7 @@ public class GapBufferTests {
         temp.insert('l');
         temp.insert('d');
 
-        assertEquals(10, temp.getCursorPosition(), "Get Cursor Failed");
+        assertEquals(11, temp.getCursorPosition(), "Get Cursor Failed");
 
     }
 
@@ -154,7 +160,7 @@ public class GapBufferTests {
             temp.moveLeft();
         }
 
-        assertEquals(0, temp.getCursorPosition(), "Move left failed");
+        assertEquals(1, temp.getCursorPosition(), "Move left failed");
     }
 
     @Test

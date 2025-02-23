@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class GapBuffer {
 
-    final int INITIAL_BUFFER_SIZE = 7;
+    final int INITIAL_BUFFER_SIZE = 2;
     char[] buffer = new char[INITIAL_BUFFER_SIZE];
 
     private int gapStartingIndex;
@@ -64,7 +64,7 @@ public class GapBuffer {
     }
 
     public int getCursorPosition() {
-        return gapStartingIndex - 1;
+        return gapStartingIndex;
     }
 
     public void moveLeft() {
@@ -94,7 +94,11 @@ public class GapBuffer {
 
     public int getSize() {
         //buffer length - length of gap +1 <-- for shift by index
-        return (buffer.length - (afterCursorIndex - gapStartingIndex) + 1);
+        
+        if(gapStartingIndex == 0 && afterCursorIndex == buffer.length){
+            return 0;
+        }
+        return (buffer.length - (afterCursorIndex - gapStartingIndex));
     }
 
     public char getChar(int i) {
