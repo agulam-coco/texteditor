@@ -17,6 +17,24 @@ public class GapBuffer {
         gapStartingIndex = 0;
         afterCursorIndex = buffer.length;
     }
+    
+    
+    private void expand(){
+        
+        //new array of double size 
+        char[] newArray = new char[buffer.length * 2];
+        
+        //copy portion before gap
+        System.arraycopy( buffer, 0, newArray, 0, gapStartingIndex );
+        
+        int numberAfterGap = buffer.length - afterCursorIndex;
+        
+        //copy portion after gap 
+        System.arraycopy( buffer, afterCursorIndex, newArray, newArray.length-numberAfterGap, numberAfterGap);
+        
+        //assign new array
+        buffer = newArray;   
+    }
 
     public void insert(char ch) {
 

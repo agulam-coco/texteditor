@@ -45,7 +45,7 @@ public class SimpleStringBuffer {
     }
 
     public void moveRight() {
-         if (sz != string_buffer.length()+1){
+         if (this.getSize() > 0 && sz != string_buffer.length()+1 ){
             sz++;
         }
         //throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
