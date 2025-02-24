@@ -15,7 +15,7 @@ public class GapBuffer {
 
     public GapBuffer() {
         gapStartingIndex = 0;
-        afterCursorIndex = buffer.length;
+        afterCursorIndex = INITIAL_BUFFER_SIZE;
     }
 
     /**
@@ -29,13 +29,13 @@ public class GapBuffer {
         //copy portion before gap
         System.arraycopy(buffer, 0, newArray, 0, gapStartingIndex);
 
-        int numberAfterGap = buffer.length - afterCursorIndex;
+        int numberAfterGap = buffer.length - gapStartingIndex;
 
         int newAfterCursorIndex = newArray.length - numberAfterGap;
 
         //copy portion after gap 
         if (numberAfterGap > 0) {
-            System.arraycopy(buffer, afterCursorIndex, newArray, newAfterCursorIndex - 1, numberAfterGap);
+            System.arraycopy(buffer, afterCursorIndex, newArray, newAfterCursorIndex, numberAfterGap);
         }
 
         //assign new array
@@ -68,7 +68,7 @@ public class GapBuffer {
      */
     public void delete() {
         //decrement gap starting index unless it is at the start of array
-        if (gapStartingIndex != 0) {
+        if (gapStartingIndex > 0) {
             gapStartingIndex--;
         }
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
