@@ -13,9 +13,10 @@ public class SimpleStringBuffer {
         sz = 0;
     }
 
-       /**
+    /**
      * This function inserts the character ch into the current gap buffer
-     * @param ch 
+     *
+     * @param ch
      */
     public void insert(char ch) {
         if (sz == 0) {
@@ -29,10 +30,9 @@ public class SimpleStringBuffer {
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
-    
-    
     /**
-     * THis function removes the element at the cursor by adding the string before and after it
+     * THis function removes the element at the cursor by adding the string
+     * before and after it
      */
     //Credit: https://stackoverflow.com/a/13386147
     public void delete() {
@@ -43,19 +43,18 @@ public class SimpleStringBuffer {
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
-    
     /**
      * This function returns the current position of the cursor
-     * @return 
+     *
+     * @return
      */
     public int getCursorPosition() {
         return sz;
         //throw new UnsupportedOperationException("Unimplemented method 'getCursorPosition'");
     }
 
-    
     /**
-     * This function moves the cursor left by causing 
+     * This function moves the cursor left by causing
      */
     public void moveLeft() {
         if (sz != 0) {
@@ -64,7 +63,7 @@ public class SimpleStringBuffer {
         //throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
     }
 
-      /**
+    /**
      * THis function moves the cursor right
      */
     public void moveRight() {
@@ -74,27 +73,31 @@ public class SimpleStringBuffer {
         //throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
     }
 
-        /**
+    /**
      * This function returns the size of the current function
-     * @return 
+     *
+     * @return
      */
     public int getSize() {
         return stringBuffer.length();
         //  throw new UnsupportedOperationException("Unimplemented method 'getSize'");
     }
 
-        /** This function returns a particular index of a function i
+    /**
+     * This function returns a particular index of a function i
+     *
      * @param i
-     * @return 
+     * @return
      */
     public char getChar(int i) throws IndexOutOfBoundsException {
         return stringBuffer.charAt(i);
         //throw new UnsupportedOperationException("Unimplemented method 'getChar'");
     }
 
-       /**
+    /**
      * This function returns a string version of buffer
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
@@ -102,4 +105,3 @@ public class SimpleStringBuffer {
         //throw new UnsupportedOperationException("Unimplemented method 'toString'");
     }
 }
-

@@ -48,7 +48,8 @@ public class GapBuffer {
 
     /**
      * This function inserts the character ch into the current gap buffer
-     * @param ch 
+     *
+     * @param ch
      */
     public void insert(char ch) {
 
