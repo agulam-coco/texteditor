@@ -52,14 +52,14 @@ public class GapBuffer {
      * @param ch
      */
     public void insert(char ch) {
-
-        buffer[gapStartingIndex] = ch;
-        gapStartingIndex++;
-
-        if (gapStartingIndex == afterCursorIndex) {
+  if (gapStartingIndex == afterCursorIndex) {
             //expand
             expand();
         }
+        buffer[gapStartingIndex] = ch;
+        gapStartingIndex++;
+
+      
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
