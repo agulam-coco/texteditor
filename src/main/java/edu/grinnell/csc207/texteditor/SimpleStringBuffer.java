@@ -23,7 +23,7 @@ public class SimpleStringBuffer {
             stringBuffer = String.format("%c", ch);
         } else {
             String left_portion = stringBuffer.substring(0, sz);
-            String right_portion = stringBuffer.substring(sz, stringBuffer.length());
+            String right_portion = stringBuffer.substring(sz);
             stringBuffer = left_portion + ch + right_portion;
         }
         sz++;
