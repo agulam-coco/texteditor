@@ -7,6 +7,7 @@ chigabat@grinnell.edu
 ## Resources Used
 
 ### Web Citations:
+I collaborated with my friend **Drilon** on my computer science project. He helped me spot a bug in the `expand` function in Java.
 
 1. W3Schools. (n.d.). *Java String substring() Method*. W3Schools. Retrieved February 23, 2025, from [https://www.w3schools.com/java/ref_string_substring.asp](https://www.w3schools.com/java/ref_string_substring.asp)
 
