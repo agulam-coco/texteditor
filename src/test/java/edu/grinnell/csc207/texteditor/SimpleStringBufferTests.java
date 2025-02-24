@@ -99,7 +99,7 @@ public class SimpleStringBufferTests {
         temp.insert('l');
         temp.insert('d');
 
-        assertEquals(10, temp.getCursorPosition(), "Get Cursor Failed");
+        assertEquals(11, temp.getCursorPosition(), "Get Cursor Failed");
 
     }
 
@@ -144,7 +144,7 @@ public class SimpleStringBufferTests {
         temp.insert('d');
 
         //move left 10 times characters
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             temp.moveLeft();
         }
 

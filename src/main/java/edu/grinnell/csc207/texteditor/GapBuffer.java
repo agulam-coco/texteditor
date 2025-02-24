@@ -98,7 +98,7 @@ public class GapBuffer {
         if(gapStartingIndex == 0 && afterCursorIndex == buffer.length){
             return 0;
         }
-        return (buffer.length - (afterCursorIndex - gapStartingIndex));
+        return (buffer.length - (afterCursorIndex - gapStartingIndex ));
     }
 
     public char getChar(int i) {
@@ -129,8 +129,6 @@ public class GapBuffer {
         } else {
             secondHalf = String.valueOf(Arrays.copyOfRange(buffer, afterCursorIndex, buffer.length));
         }
-        System.out.println(afterCursorIndex);
-        System.out.println(buffer.length);
 
         return firstHalf + secondHalf;
     }
