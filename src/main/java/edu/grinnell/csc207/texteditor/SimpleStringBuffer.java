@@ -19,13 +19,9 @@ public class SimpleStringBuffer {
      * @param ch
      */
     public void insert(char ch) {
-        if (sz == 0) {
-            stringBuffer = String.format("%c", ch);
-        } else {
-            String left_portion = stringBuffer.substring(0, sz);
-            String right_portion = stringBuffer.substring(sz);
-            stringBuffer = left_portion + ch + right_portion;
-        }
+        String left_portion = stringBuffer.substring(0, sz);
+        String right_portion = stringBuffer.substring(sz);
+        stringBuffer = left_portion + ch + right_portion;
         sz++;
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
@@ -57,7 +53,7 @@ public class SimpleStringBuffer {
      * This function moves the cursor left by causing
      */
     public void moveLeft() {
-        if (sz != 0) {
+        if (sz > 0) {
             sz--;
         }
         //throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
@@ -67,7 +63,7 @@ public class SimpleStringBuffer {
      * THis function moves the cursor right
      */
     public void moveRight() {
-        if (this.getSize() > 0 && sz != stringBuffer.length() + 1) {
+        if (sz < stringBuffer.length()) {
             sz++;
         }
         //throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
