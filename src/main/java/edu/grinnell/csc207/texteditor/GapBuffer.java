@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class GapBuffer {
 
-    final int INITIAL_BUFFER_SIZE = 2;
+    final int INITIAL_BUFFER_SIZE = 10;
     char[] buffer = new char[INITIAL_BUFFER_SIZE];
 
     private int gapStartingIndex;
