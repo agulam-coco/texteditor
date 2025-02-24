@@ -52,6 +52,88 @@ If we assume that every copy operation is a linear function with a function in t
 **insert is O(n)**
 
 ## Changelog
+commit 20669bbd6e60abe07b0796dad1e2f2b0229c397d (HEAD -> main)
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:38:00 2025 -0600
+
+    Fixed length method call in string buffer
+
+commit 4293b56991b876a7c14aee7a7953f5f2659dabf1 (origin/main, origin/HEAD)
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:32:01 2025 -0600
+
+    Fixed bug in move left and move right in string buffer
+
+commit 5303a3a9dbeed8532a3b2a4a8ec4a7d755465a1d
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:27:36 2025 -0600
+
+    Fixed bug in string buffer
+
+commit 7c04cdc5b2aee562220eb3411d08ade75e2fc088
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:20:57 2025 -0600
+
+    Attempting to swap check in insert
+pnueli texteditor$ 
+pnueli texteditor$ git log > log.txt
+pnueli texteditor$ cat log.txt 
+commit 20669bbd6e60abe07b0796dad1e2f2b0229c397d
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:38:00 2025 -0600
+
+    Fixed length method call in string buffer
+
+commit 4293b56991b876a7c14aee7a7953f5f2659dabf1
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:32:01 2025 -0600
+
+    Fixed bug in move left and move right in string buffer
+
+commit 5303a3a9dbeed8532a3b2a4a8ec4a7d755465a1d
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:27:36 2025 -0600
+
+    Fixed bug in string buffer
+
+commit 7c04cdc5b2aee562220eb3411d08ade75e2fc088
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:20:57 2025 -0600
+
+    Attempting to swap check in insert
+
+commit ef44be11d7b717571919d1e2de0b2ed56a553666
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:17:21 2025 -0600
+
+    Changed expand number after gap calculation
+
+commit 0629575a5a1232a59c97b1b3c616eeff622a4834
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:08:53 2025 -0600
+
+    Increased buffer initial size
+
+commit 14cb62122803f746640f959654f9d038d9001fee
+Merge: df17f48 e2cd0f4
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 23:01:48 2025 -0600
+
+    Merge branch 'main' of github.com:agulam-coco/texteditor
+    merge to include new string tests
+
+commit df17f4802b39dcb00b66e2dfee0f4d29f4364f62
+Author: Jason Chigabatia <aguchija@gmail.com>
+Date:   Sun Feb 23 22:59:45 2025 -0600
+
+    Modified string tests
+
+commit e2cd0f4bfa588db7a111bce837b5c7974d5c5d84
+Author: agulam-coco <aguchija@gmail.com>
+Date:   Sun Feb 23 20:51:19 2025 -0600
+
+    added information to README
+
 commit 6edd42844d5647f9fb74b0f75cd3e329fa733d45
 Author: Jason Chigabatia <aguchija@gmail.com>
 Date:   Sun Feb 23 20:38:41 2025 -0600
