@@ -44,6 +44,24 @@ public class SimpleStringBufferTests {
         assertEquals("hello", temp.toString(), "Insertion failed");
     }
 
+
+    @Test
+    public void deleteTestEdge() {
+        SimpleStringBuffer temp = new SimpleStringBuffer();
+        temp.insert('h');
+        temp.insert('e');
+        temp.insert('l');
+        temp.insert('l');
+        temp.insert('o');
+
+        //delete 8 characters
+        for (int i = 0; i < 8; i++) {
+            temp.delete();
+        }
+
+        assertEquals(0, temp.getCursorPosition(), "Delete edge case failed");
+    }
+    
     @Test
     public void deleteTest() {
         SimpleStringBuffer temp = new SimpleStringBuffer();
@@ -59,29 +77,12 @@ public class SimpleStringBufferTests {
         temp.insert('l');
         temp.insert('d');
 
-        //delete 4 characters
+        //delete 8 characters
         for (int i = 0; i < 4; i++) {
             temp.delete();
         }
 
         assertEquals("hello w", temp.toString(), "Deletion failed");
-    }
-
-    @Test
-    public void deleteTestEdge() {
-        SimpleStringBuffer temp = new SimpleStringBuffer();
-        temp.insert('h');
-        temp.insert('e');
-        temp.insert('l');
-        temp.insert('l');
-        temp.insert('o');
-
-        //delete 4 characters
-        for (int i = 0; i < 8; i++) {
-            temp.delete();
-        }
-
-        assertEquals(0, temp.getCursorPosition(), "Delete edge case failed");
     }
 
     @Test
@@ -200,7 +201,7 @@ public class SimpleStringBufferTests {
         int currentPosition = temp.getCursorPosition();
 
         //move left four characters
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 10; i++) {
             temp.moveLeft();
         }
         //move right 10 characters

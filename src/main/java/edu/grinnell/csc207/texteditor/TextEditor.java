@@ -1,7 +1,6 @@
 package edu.grinnell.csc207.texteditor;
 
 import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
@@ -9,7 +8,6 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -43,11 +41,8 @@ public class TextEditor {
             insertInitial(buffer, fileContents);
             drawBuffer(buffer, screen);
         }
-//  System.out.print("This is not a valid file name!");
-//            printUsage();
-//            System.exit(2);
-//        
-        OUTER:             //start
+
+        OUTER:             
         while (true) {
             KeyStroke userInput = screen.readInput();
             KeyType userKeyType = userInput.getKeyType();
@@ -81,10 +76,19 @@ public class TextEditor {
 
     }
 
+    /**
+     * Helper function to  print usage file
+     */
     private static void printUsage() {
         System.err.println("Usage: java TextEditor <filename>");
     }
 
+    /**
+     * This function draws the buffer passed to it to the screen 
+     * @param buf
+     * @param screen
+     * @throws IOException 
+     */
     public static void drawBuffer(GapBuffer buf, Screen screen) throws IOException {
         screen.clear();
         for (int index = 0; index < buf.getSize(); index++) {
@@ -103,6 +107,11 @@ public class TextEditor {
         screen.refresh();
     }
 
+    /**
+     * This function inserts the initial content into the buffer character by character unless its length is 0
+     * @param buf
+     * @param initialContent 
+     */
     public static void insertInitial(GapBuffer buf, String initialContent) {
         if (initialContent.length() == 0) {
             return;

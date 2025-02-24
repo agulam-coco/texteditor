@@ -18,6 +18,9 @@ public class GapBuffer {
         afterCursorIndex = buffer.length;
     }
 
+    /**
+     * This function expands a Gap Buffer aby doubling its internal size
+     */
     private void expand() {
 
         //new array of double size 
@@ -43,6 +46,10 @@ public class GapBuffer {
         
     }
 
+    /**
+     * This function inserts the character ch into the current gap buffer
+     * @param ch 
+     */
     public void insert(char ch) {
 
         buffer[gapStartingIndex] = ch;
@@ -55,6 +62,9 @@ public class GapBuffer {
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
+    /**
+     * THis function removes the element behind the current gap by pointing the gap to it
+     */
     public void delete() {
         //decrement gap starting index unless it is at the start of array
         if (gapStartingIndex != 0) {
@@ -63,10 +73,17 @@ public class GapBuffer {
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
+    /**
+     * This function returns the current position of the cursor
+     * @return 
+     */
     public int getCursorPosition() {
         return gapStartingIndex;
     }
 
+    /**
+     * This function moves the cursor left by causing 
+     */
     public void moveLeft() {
         //if gapStaringIndex > 0
         //move gap starting index back one.
@@ -80,6 +97,9 @@ public class GapBuffer {
         }
     }
 
+    /**
+     * THis function moves the cursor right
+     */
     public void moveRight() {
         //if aftercursor < buffer length
         //copy value in after cursor to gapStartingBuffer.
@@ -91,7 +111,11 @@ public class GapBuffer {
             afterCursorIndex++;
         }
     }
-
+    
+    /**
+     * This function returns the size of the current function
+     * @return 
+     */
     public int getSize() {
         //buffer length - length of gap +1 <-- for shift by index
         
@@ -101,6 +125,10 @@ public class GapBuffer {
         return (buffer.length - (afterCursorIndex - gapStartingIndex ));
     }
 
+    /** This function returns a particular index of a function i
+     * @param i
+     * @return 
+     */
     public char getChar(int i) {
         //in the part after gap
         if (i >= gapStartingIndex) {
@@ -112,6 +140,10 @@ public class GapBuffer {
         //throw new UnsupportedOperationException("Unimplemented method 'getChar'");
     }
 
+    /**
+     * This function returns a string version of buffer
+     * @return 
+     */
     //credit: https://stackoverflow.com/a/4822280
     public String toString() {
         //add first part before gap to part after gap
