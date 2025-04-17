@@ -10,7 +10,7 @@ public class SimpleStringBuffer {
 
     /**
      * Constructor for String Buffer
-    */
+     */
     public SimpleStringBuffer() {
         stringBuffer = "";
         sz = 0;
@@ -22,7 +22,7 @@ public class SimpleStringBuffer {
      * @param ch
      */
     public void insert(char ch) {
-         String leftPortion = stringBuffer.substring(0, sz);
+        String leftPortion = stringBuffer.substring(0, sz);
         String rightPortion = stringBuffer.substring(sz);
         stringBuffer = leftPortion + ch + rightPortion;
         sz++;
@@ -42,6 +42,7 @@ public class SimpleStringBuffer {
 
     /**
      * This function returns the current position of the cursor
+     *
      * @return the position of the cursor
      */
     public int getCursorPosition() {
@@ -68,14 +69,16 @@ public class SimpleStringBuffer {
 
     /**
      * This function returns the size of the current buffer
+     *
      * @return the size of the buffer
      */
     public int getSize() {
         return stringBuffer.length();
     }
 
-
-    /** This function returns a particular index of a function i
+    /**
+     * This function returns a particular index of a function i
+     *
      * @param i the index to get from buffer
      * @return the current character to get from buffer
      */
@@ -83,9 +86,9 @@ public class SimpleStringBuffer {
         return stringBuffer.charAt(i);
     }
 
-    
-     /**
+    /**
      * This function returns a string version of buffer
+     *
      * @return the string representation of the buffer
      */
     @Override

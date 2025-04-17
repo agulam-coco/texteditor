@@ -1,56 +1,70 @@
 # CSC 207: Text Editor
 
-**Author**:  
+**Author**  
 Jason Chigabatia  
-chigabat@grinnell.edu
+📧 chigabat@grinnell.edu
 
-## Resources Used
+---
 
-### Citations:
-I collaborated with my friend **Drilon** on my computer science project. He helped me spot a bug in the `expand` function in Java.
+## 📋 Overview
 
-1. W3Schools. (n.d.). *Java String substring() Method*. W3Schools. Retrieved February 23, 2025, from [https://www.w3schools.com/java/ref_string_substring.asp](https://www.w3schools.com/java/ref_string_substring.asp)
+This project is a terminal-based text editor developed in Java using the Lanterna library. It includes core text editing features with support for two buffer implementations: `SimpleStringBuffer` and `GapBuffer`. The project demonstrates key data structure concepts and event-driven programming principles.
 
-2. Stack Overflow. (2010). *What's the actual use of fail in JUnit test case?*. Stack Overflow. Retrieved February 23, 2025, from [https://stackoverflow.com/questions/3869954/whats-the-actual-use-of-fail-in-junit-test-case](https://stackoverflow.com/questions/3869954/whats-the-actual-use-of-fail-in-junit-test-case)
+---
 
-3. Baeldung. (2020, November 30). *Introduction to jqwik: Property-based Testing in Java*. Baeldung. Retrieved February 23, 2025, from [https://www.baeldung.com/java/jqwik-property-based-testing](https://www.baeldung.com/java/jqwik-property-based-testing)
+## ✅ Changes Made
 
-4. Grinnell College. (n.d.). *Text Editor Lab*. Osera, Grinnell College. Retrieved February 23, 2025, from [https://osera.cs.grinnell.edu/ttap/data-structures-labs/text-editor.html](https://osera.cs.grinnell.edu/ttap/data-structures-labs/text-editor.html)
+- Fixed bugs in `moveLeft` and `moveRight` methods.
+- Resolved buffer expansion logic errors.
+- Updated `insert` and `delete` behavior to adhere to style guidelines.
+- Enhanced test coverage and added file I/O capabilities.
 
-5. Stack Overflow. (2012). *How do I use `fail()` in a JUnit Test case?*. Stack Overflow. Retrieved February 23, 2025, from [https://stackoverflow.com/a/11001759](https://stackoverflow.com/a/11001759)
+---
 
-6. Mabe02. (n.d.). *Screen Interface - Lanterna API Docs 2.1*. Mabe02. Retrieved February 23, 2025, from [https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html)
+## 🔍 Analysis: `SimpleStringBuffer` `insert` Method
 
-7. Mabe02. (n.d.). *TerminalPosition Class - Lanterna API Docs 2.1*. Mabe02. Retrieved February 23, 2025, from [https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/terminal/TerminalPosition.html](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/terminal/TerminalPosition.html)
+Each `insert` operation involves **three critical string copying operations**, each linear in time relative to string length `n`:
 
-8. Mabe02. (n.d.). *Screen.putString Method - Lanterna API Docs 2.1*. Mabe02. Retrieved February 23, 2025, from [https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html#putString(int,%20int,%20java.lang.String,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.terminal.Terminal.Color,%20java.util.Set)](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html#putString(int,%20int,%20java.lang.String,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.terminal.Terminal.Color,%20java.util.Set)
+- Substring extraction  
+- Concatenation before insertion  
+- Concatenation after insertion  
 
-9. Mabe02. (n.d.). *Screen.putString Method - Lanterna API Docs 2.1 (with Styles)*. Mabe02. Retrieved February 23, 2025, from [https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html#putString(int,%20int,%20java.lang.String,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.screen.ScreenCharacterStyle...)](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html#putString(int,%20int,%20java.lang.String,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.screen.ScreenCharacterStyle...)
+### Runtime Complexity:
+- Each of the three operations is **O(n)**
+- Therefore, the overall runtime: **3n**
 
-10. Mabe02. (n.d.). *Screen.putString Method - Lanterna API Docs 2.1 (with Styles)*. Mabe02. Retrieved February 23, 2025, from [https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html#putString(int,%20int,%20java.lang.String,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.screen.ScreenCharacterStyle...)](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html#putString(int,%20int,%20java.lang.String,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.screen.ScreenCharacterStyle...)
+> **Conclusion:** `insert` is **O(n)**
 
-11. Mabe02. (n.d.). *KeyStroke Class - Lanterna API Docs 3.0*. Mabe02. Retrieved February 23, 2025, from [https://mabe02.github.io/lanterna/apidocs/3.0/com/googlecode/lanterna/input/KeyStroke.html](https://mabe02.github.io/lanterna/apidocs/3.0/com/googlecode/lanterna/input/KeyStroke.html)
+---
 
-### Java Programming Language:  
-Oracle. (n.d.). *The Java™ Programming Language*. Oracle. Retrieved February 23, 2025, from [https://www.oracle.com/java/](https://www.oracle.com/java/)
+## 📖 Resources Used
 
-### NetBeans IDE:  
-Apache Software Foundation. (n.d.). *NetBeans IDE*. Apache Software Foundation. Retrieved February 23, 2025, from [https://netbeans.apache.org/](https://netbeans.apache.org/)
+### 🤝 Collaboration
 
-### ChatGPT Citation:  
-OpenAI. (2025). *ChatGPT*. Used to format README file. OpenAI. Retrieved February 23, 2025, from [https://www.openai.com/chatgpt](https://www.openai.com/chatgpt)
+- Collaborated with **Drilon**, who helped identify a bug in the `expand` function.
 
-## Analysis of SimpleStringBuffer
+### 🧠 Citations
 
-### `insert` method
+1. W3Schools. *Java String substring() Method*. [Link](https://www.w3schools.com/java/ref_string_substring.asp)  
+2. Stack Overflow. *What's the actual use of fail in JUnit test case?* [Link](https://stackoverflow.com/questions/3869954/whats-the-actual-use-of-fail-in-junit-test-case)  
+3. Baeldung. *Introduction to jqwik: Property-based Testing in Java*. [Link](https://www.baeldung.com/java/jqwik-property-based-testing)  
+4. Grinnell College. *Text Editor Lab*. Osera. [Link](https://osera.cs.grinnell.edu/ttap/data-structures-labs/text-editor.html)  
+5. Stack Overflow. *How do I use `fail()` in a JUnit Test case?* [Link](https://stackoverflow.com/a/11001759)  
+6. Mabe02. *Lanterna API Docs 2.1: Screen Interface*. [Link](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html)  
+7. Mabe02. *TerminalPosition Class*. [Link](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/terminal/TerminalPosition.html)  
+8. Mabe02. *Screen.putString Method (Standard)*. [Link](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html#putString(int,%20int,%20java.lang.String,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.terminal.Terminal.Color,%20java.util.Set))  
+9. Mabe02. *Screen.putString Method (With Styles)*. [Link](https://mabe02.github.io/lanterna/apidocs/2.1/com/googlecode/lanterna/screen/Screen.html#putString(int,%20int,%20java.lang.String,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.terminal.Terminal.Color,%20com.googlecode.lanterna.screen.ScreenCharacterStyle...))  
+10. Mabe02. *KeyStroke Class - Lanterna API Docs 3.0*. [Link](https://mabe02.github.io/lanterna/apidocs/3.0/com/googlecode/lanterna/input/KeyStroke.html)
 
-- The relevant input to the insert method is `n` where `n` is the size of the string that is implicitly copied within any of the string manipulation methods. 
-- Because each substring and concatenation is a copy, they would each be treated as their own critical operation. THERE ARE 3 OF THESE CRITICAL OPERATIONS.
+### 🔧 Tools and Technologies
 
-If we assume that every copy operation is a linear function with a function in the order of `n`, then the mathematical model of the runtime is `3n`.
+- **Java Programming Language** – [Oracle Java](https://www.oracle.com/java/)  
+- **NetBeans IDE** – [Apache NetBeans](https://netbeans.apache.org/)  
+- **ChatGPT** – Used to help structure this README. [Link](https://www.openai.com/chatgpt)
 
-**insert is O(n)**
+---
 
+## 📝 Git Commit Log
 ## Changelog
 commit 20669bbd6e60abe07b0796dad1e2f2b0229c397d (HEAD -> main)
 Author: Jason Chigabatia <aguchija@gmail.com>
