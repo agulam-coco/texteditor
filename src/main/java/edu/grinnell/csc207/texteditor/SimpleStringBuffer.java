@@ -29,6 +29,7 @@ public class SimpleStringBuffer {
             String rightPortion = stringBuffer.substring(sz, stringBuffer.length());
             stringBuffer = leftPortion + ch + rightPortion;
         }
+        sz++;
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
