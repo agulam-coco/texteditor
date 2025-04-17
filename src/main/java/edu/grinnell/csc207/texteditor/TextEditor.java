@@ -108,7 +108,8 @@ public class TextEditor {
     }
 
     /**
-     * This function inserts the initial content into the buffer character by character unless its length is 0
+     * This function inserts the initial content into the buffer character by 
+     * character unless its length is 0
      * @param buf
      * @param initialContent 
      */

@@ -7,12 +7,15 @@ import java.util.Arrays;
  */
 public class GapBuffer {
 
-    final int INITIAL_BUFFER_SIZE = 2;
-    char[] buffer = new char[INITIAL_BUFFER_SIZE];
+    final int initialBufferSize = 2;
+    char[] buffer = new char[initialBufferSize];
 
     private int gapStartingIndex;
     private int afterCursorIndex;
 
+    /**
+     * Constructor of Gap Buffer
+     */
     public GapBuffer() {
         gapStartingIndex = 0;
         afterCursorIndex = buffer.length;
@@ -35,7 +38,9 @@ public class GapBuffer {
 
         //copy portion after gap 
         if (numberAfterGap > 0) {
-            System.arraycopy(buffer, afterCursorIndex, newArray, newAfterCursorIndex - 1, numberAfterGap);
+            System.arraycopy(buffer, afterCursorIndex,
+                    newArray, newAfterCursorIndex - 1,
+                    numberAfterGap);
         }
 
         //assign new array
@@ -43,12 +48,13 @@ public class GapBuffer {
 
         //move after cursor to new 
         afterCursorIndex = newAfterCursorIndex;
-        
+
     }
 
     /**
      * This function inserts the character ch into the current gap buffer
-     * @param ch 
+     *
+     * @param ch
      */
     public void insert(char ch) {
 
@@ -63,7 +69,8 @@ public class GapBuffer {
     }
 
     /**
-     * THis function removes the element behind the current gap by pointing the gap to it
+     * THis function removes the element behind the current gap by pointing the
+     * gap to it
      */
     public void delete() {
         //decrement gap starting index unless it is at the start of array
@@ -75,14 +82,15 @@ public class GapBuffer {
 
     /**
      * This function returns the current position of the cursor
-     * @return 
+     *
+     * @return gap cursor position
      */
     public int getCursorPosition() {
         return gapStartingIndex;
     }
 
     /**
-     * This function moves the cursor left by causing 
+     * This function moves the cursor left by causing
      */
     public void moveLeft() {
         //if gapStaringIndex > 0
@@ -111,23 +119,25 @@ public class GapBuffer {
             afterCursorIndex++;
         }
     }
-    
+
     /**
      * This function returns the size of the current function
-     * @return 
+     *
+     * @return the size of the buffer
      */
     public int getSize() {
         //buffer length - length of gap +1 <-- for shift by index
-        
-        if(gapStartingIndex == 0 && afterCursorIndex == buffer.length){
+
+        if (gapStartingIndex == 0 && afterCursorIndex == buffer.length) {
             return 0;
         }
-        return (buffer.length - (afterCursorIndex - gapStartingIndex ));
+        return (buffer.length - (afterCursorIndex - gapStartingIndex));
     }
 
-    /** This function returns a particular index of a function i
-     * @param i
-     * @return 
+    /**
+     * This function returns a particular index of a function i
+     * @param i the index to get
+     * @return value at index i from buffer
      */
     public char getChar(int i) {
         //in the part after gap
@@ -142,7 +152,7 @@ public class GapBuffer {
 
     /**
      * This function returns a string version of buffer
-     * @return 
+     * @return string representation of buffer
      */
     //credit: https://stackoverflow.com/a/4822280
     public String toString() {
@@ -153,13 +163,15 @@ public class GapBuffer {
         if (gapStartingIndex == 0) {
             firstHalf = "";
         } else {
-            firstHalf = String.valueOf(Arrays.copyOfRange(buffer, 0, gapStartingIndex));
+            firstHalf = String.valueOf(Arrays.copyOfRange(buffer, 
+                    0, gapStartingIndex));
         }
 
         if (afterCursorIndex == buffer.length) {
             secondHalf = "";
         } else {
-            secondHalf = String.valueOf(Arrays.copyOfRange(buffer, afterCursorIndex, buffer.length));
+            secondHalf = String.valueOf(Arrays.copyOfRange(buffer,
+                    afterCursorIndex, buffer.length));
         }
 
         return firstHalf + secondHalf;

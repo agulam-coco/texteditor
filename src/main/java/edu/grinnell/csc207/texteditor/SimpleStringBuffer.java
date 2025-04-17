@@ -8,6 +8,9 @@ public class SimpleStringBuffer {
     private String stringBuffer;
     private int sz = 0;
 
+    /**
+     * Constructor for String Buffer
+    */
     public SimpleStringBuffer() {
         stringBuffer = "";
         sz = 0;
@@ -21,9 +24,9 @@ public class SimpleStringBuffer {
         if (sz == 0) {
             stringBuffer = String.format("%c", ch);
         } else {
-            String left_portion = stringBuffer.substring(0, sz);
-            String right_portion = stringBuffer.substring(sz, stringBuffer.length());
-            stringBuffer = left_portion + ch + right_portion;
+            String leftPortion = stringBuffer.substring(0, sz);
+            String rightPortion = stringBuffer.substring(sz, stringBuffer.length());
+            stringBuffer = leftPortion + ch + rightPortion;
         }
         sz++;
         //throw new UnsupportedOperationException("Unimplemented method 'delete'");
@@ -46,7 +49,7 @@ public class SimpleStringBuffer {
     
     /**
      * This function returns the current position of the cursor
-     * @return 
+     * @return the position of the cursor
      */
     public int getCursorPosition() {
         return sz;
@@ -75,8 +78,8 @@ public class SimpleStringBuffer {
     }
 
         /**
-     * This function returns the size of the current function
-     * @return 
+     * This function returns the size of the current buffer
+     * @return the size of the buffer
      */
     public int getSize() {
         return stringBuffer.length();
@@ -84,17 +87,17 @@ public class SimpleStringBuffer {
     }
 
         /** This function returns a particular index of a function i
-     * @param i
-     * @return 
+     * @param i the index to get from buffer
+     * @return the current character to get from buffer
      */
     public char getChar(int i) throws IndexOutOfBoundsException {
         return stringBuffer.charAt(i);
         //throw new UnsupportedOperationException("Unimplemented method 'getChar'");
     }
 
-       /**
+     /**
      * This function returns a string version of buffer
-     * @return 
+     * @return the string representation of the buffer
      */
     @Override
     public String toString() {
