@@ -22,15 +22,10 @@ public class SimpleStringBuffer {
      * @param ch
      */
     public void insert(char ch) {
-        if (sz == 0) {
-            stringBuffer = String.format("%c", ch);
-        } else {
-            String leftPortion = stringBuffer.substring(0, sz);
-            String rightPortion = stringBuffer.substring(sz, stringBuffer.length());
-            stringBuffer = leftPortion + ch + rightPortion;
-        }
+         String leftPortion = stringBuffer.substring(0, sz);
+        String rightPortion = stringBuffer.substring(sz);
+        stringBuffer = leftPortion + ch + rightPortion;
         sz++;
-        //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     /**
@@ -43,7 +38,6 @@ public class SimpleStringBuffer {
             stringBuffer = stringBuffer.substring(0, sz - 1) + stringBuffer.substring(sz);
             sz--;
         }
-        //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     /**
@@ -52,7 +46,6 @@ public class SimpleStringBuffer {
      */
     public int getCursorPosition() {
         return sz;
-        //throw new UnsupportedOperationException("Unimplemented method 'getCursorPosition'");
     }
 
     /**
@@ -62,7 +55,6 @@ public class SimpleStringBuffer {
         if (sz > 0) {
             sz--;
         }
-        //throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
     }
 
     /**
@@ -72,7 +64,6 @@ public class SimpleStringBuffer {
         if (sz < stringBuffer.length()) {
             sz++;
         }
-        //throw new UnsupportedOperationException("Unimplemented method 'moveRight'");
     }
 
     /**
@@ -81,7 +72,6 @@ public class SimpleStringBuffer {
      */
     public int getSize() {
         return stringBuffer.length();
-        //  throw new UnsupportedOperationException("Unimplemented method 'getSize'");
     }
 
 
@@ -91,7 +81,6 @@ public class SimpleStringBuffer {
      */
     public char getChar(int i) throws IndexOutOfBoundsException {
         return stringBuffer.charAt(i);
-        //throw new UnsupportedOperationException("Unimplemented method 'getChar'");
     }
 
     
@@ -102,6 +91,5 @@ public class SimpleStringBuffer {
     @Override
     public String toString() {
         return stringBuffer;
-        //throw new UnsupportedOperationException("Unimplemented method 'toString'");
     }
 }

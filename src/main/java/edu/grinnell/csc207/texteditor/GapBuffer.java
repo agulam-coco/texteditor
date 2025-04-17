@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class GapBuffer {
 
-    final int initialBufferSize = 2;
+    final int initialBufferSize = 10;
     char[] buffer = new char[initialBufferSize];
 
     private int gapStartingIndex;
@@ -38,9 +38,8 @@ public class GapBuffer {
 
         //copy portion after gap 
         if (numberAfterGap > 0) {
-            System.arraycopy(buffer, afterCursorIndex,
-                    newArray, newAfterCursorIndex - 1,
-                    numberAfterGap);
+            System.arraycopy(buffer, afterCursorIndex, newArray,
+                    newAfterCursorIndex - 1, numberAfterGap);
         }
 
         //assign new array
@@ -65,7 +64,6 @@ public class GapBuffer {
             //expand
             expand();
         }
-        //throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     /**
@@ -136,6 +134,7 @@ public class GapBuffer {
 
     /**
      * This function returns a particular index of a function i
+     *
      * @param i the index to get
      * @return value at index i from buffer
      */
@@ -152,6 +151,7 @@ public class GapBuffer {
 
     /**
      * This function returns a string version of buffer
+     *
      * @return string representation of buffer
      */
     @Override
@@ -164,7 +164,7 @@ public class GapBuffer {
         if (gapStartingIndex == 0) {
             firstHalf = "";
         } else {
-            firstHalf = String.valueOf(Arrays.copyOfRange(buffer, 
+            firstHalf = String.valueOf(Arrays.copyOfRange(buffer,
                     0, gapStartingIndex));
         }
 
