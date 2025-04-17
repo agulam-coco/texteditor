@@ -142,8 +142,8 @@ public class GapBuffer {
         //in the part after gap
         if (i >= gapStartingIndex) {
             return buffer[afterCursorIndex + (i - gapStartingIndex)];
-        } //in the part before gap
-        else {
+        } else {
+            //inpar before gap
             return buffer[i];
         }
         //throw new UnsupportedOperationException("Unimplemented method 'getChar'");
