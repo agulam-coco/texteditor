@@ -18,7 +18,7 @@ public class GapBuffer {
      */
     public GapBuffer() {
         gapStartingIndex = 0;
-        afterCursorIndex = buffer.length;
+        afterCursorIndex = initialBufferSize;
     }
 
     /**
@@ -154,6 +154,7 @@ public class GapBuffer {
      * This function returns a string version of buffer
      * @return string representation of buffer
      */
+    @Override
     //credit: https://stackoverflow.com/a/4822280
     public String toString() {
         //add first part before gap to part after gap

@@ -35,15 +35,15 @@ public class SimpleStringBufferTests {
     @Test
     public void insertTest() {
         SimpleStringBuffer temp = new SimpleStringBuffer();
-        temp.insert('h');
-        temp.insert('e');
-        temp.insert('l');
-        temp.insert('l');
+        temp.insert('f');
+        temp.insert('r');
         temp.insert('o');
+        temp.insert('n');
+        temp.insert('t');
 
-        assertEquals("hello", temp.toString(), "Insertion failed");
+        assertEquals("front", temp.toString(), "Insertion failed");
+        assertEquals(5,temp.getSize(), "Wrong size");
     }
-
 
     @Test
     public void deleteTestEdge() {
@@ -61,7 +61,7 @@ public class SimpleStringBufferTests {
 
         assertEquals(0, temp.getCursorPosition(), "Delete edge case failed");
     }
-    
+
     @Test
     public void deleteTest() {
         SimpleStringBuffer temp = new SimpleStringBuffer();
